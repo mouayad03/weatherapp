@@ -25,7 +25,7 @@ export function weatherInputMsg(description) {
 }
 
 export const loadTime = { type: MSGS.DATA_LOAD };
-export const updateTimeMSG = (currentTime) => ({ type: MSGS.UPDATE_DATA, currentTime });
+export const updateWeatherMSG = (currentTime) => ({ type: MSGS.UPDATE_DATA, currentTime });
 export const saveweatherMsg = { type: MSGS.SAVE_weather };
 
 export function deleteweatherMsg(id) {

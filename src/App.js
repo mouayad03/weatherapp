@@ -1,7 +1,7 @@
 import { h, diff, patch } from 'virtual-dom';
 import createElement from 'virtual-dom/create-element';
 import axios from 'axios';
-import { updateTimeMSG, saveweatherMsg } from "./Update";
+import { updateWeatherMSG, saveweatherMsg } from "./Update";
 
 function app(initModel, update, view, node) {
     let model = initModel;
@@ -33,7 +33,7 @@ function app(initModel, update, view, node) {
   const httpEffect = (dispatch, command) => {
     const { url } = command;
     axios.get(url).then((response) => {
-      dispatch(updateTimeMSG(response.data.main));
+      dispatch(updateWeatherMSG(response.data.main));
     });
   };
   
