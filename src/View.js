@@ -1,7 +1,7 @@
 import hh from "hyperscript-helpers";
 import { h } from "virtual-dom";
 import * as R from "ramda";
-import { showFormMsg, weatherInputMsg, loadTime, updateTime, saveweatherMsg, deleteweatherMsg } from "./Update";
+import { showFormMsg, weatherInputMsg, loadData, updateTime, saveweatherMsg, deleteweatherMsg } from "./Update";
 
 const btnStyle = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded";
 const cellStyle = "px-1 py-2 min-w-[100px] bg-zinc-200";
@@ -68,7 +68,7 @@ function fieldSet(labelText, inputValue, placeholder, oninput) {
 
 function buttonSet(dispatch) {
   return div({ className: "flex gap-4 justify-center" }, [
-    button({className: `${btnStyle} bg-green-500 hover:bg-green-700`, type: "submit", onclick: () => dispatch(loadTime)}, "Save"),
+    button({className: `${btnStyle} bg-green-500 hover:bg-green-700`, type: "submit", onclick: () => dispatch(loadData)}, "Save"),
     button({className: `${btnStyle} bg-red-500 hover:bg-red-700`, type: "button", onclick: () => dispatch(showFormMsg(false))},  "Cancel")
   ]);
 }

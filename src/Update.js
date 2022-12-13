@@ -24,8 +24,8 @@ export function weatherInputMsg(description) {
   };
 }
 
-export const loadTime = { type: MSGS.DATA_LOAD };
-export const updateWeatherMSG = (currentTime) => ({ type: MSGS.UPDATE_DATA, currentTime });
+export const loadData = { type: MSGS.DATA_LOAD };
+export const updateWeatherMSG = (currnetData) => ({ type: MSGS.UPDATE_DATA, currnetData });
 export const saveweatherMsg = { type: MSGS.SAVE_weather };
 
 export function deleteweatherMsg(id) {
@@ -39,7 +39,7 @@ function update(msg, model) {
   switch (msg.type) {
     case MSGS.SHOW_FORM: {
       const { showForm } = msg;
-      return { ...model, showForm, description: '', calories: 0 };
+      return { ...model, showForm, description: '' };
     }
     case MSGS.DATA_LOAD: {
       return {
@@ -50,14 +50,12 @@ function update(msg, model) {
       };
     }
     case MSGS.UPDATE_DATA: {
-      const { currentTime } = msg;
-      return { ...model, temp:currentTime.temp, low:currentTime.temp_min, high:currentTime.temp_max };
+      const { currnetData } = msg;
+      return { ...model, temp: currnetData.temp, low: currnetData.temp_min, high: currnetData.temp_max };
     }
     case MSGS.weather_INPUT: {
       const { description } = msg;
       return { ...model, description };
-    }
-    case MSGS.DATA_GET: {
     }
     case MSGS.SAVE_weather: {
         const updatedModel = add(msg, model);

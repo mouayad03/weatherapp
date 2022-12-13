@@ -1,5 +1,5 @@
 const initModel = {
-    currentTime: 0,
+    currnetData: 0,
     description: '',
     temp: 0,
     low: 0,
